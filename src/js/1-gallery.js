@@ -63,58 +63,22 @@ const images = [
     description: "Lighthouse Coast Sea",
   },
 ];
+import SimpleLightbox from "simplelightbox";
+import "https://github.com/VadymVlodarchyk/goit-js-hw-09/blob/main/node_modules/simplelightbox/dist/simple-lightbox.min.css"
 
-function handleKeyDown(event) {
-    if (event.key === 'Escape') {
-        closeModal();
-    }
-}
+
 const myContainer = document.querySelector('.gallery');
 
 function myMarkup() {
     return images.map(image => {
         return `<li class="gallery-item">
-  <a class="gallery-link" href="${image.original}">
-    <img class="gallery-image" src="${image.preview}" alt="${image.description}" />
-  </a>
-</li>`;
+            <a class="gallery-link" href="${image.original}">
+                <img class="gallery-image" src="${image.preview}" alt="${image.description}" />
+            </a>
+        </li>`;
     }).join('\n\n');
 }
+
 myContainer.innerHTML = myMarkup();
 
-
-
-
-// const lightbox = basicLightbox.create(`
-//     <div class="modal">
-//         <img src="" alt="">
-//     </div>`, {
-//     onShow: (instance) => {
-//         document.addEventListener('keydown', handleKeyDown);
-//     },
-//     onClose: (instance) => {
-//         document.removeEventListener('keydown', handleKeyDown);
-//     }
-// });
-
-// function openModal(imageURL, imageAlt) {
-//     const modalImage = lightbox.element().querySelector('img');
-//     modalImage.setAttribute('src', imageURL);
-//     modalImage.setAttribute('alt', imageAlt);
-//     lightbox.show();
-// }
-
-function closeModal() {
-    lightbox.close();
-}
-
-// myContainer.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     const target = event.target;
-
-//     if (target.classList.contains('gallery-image')) {
-//         const imageURL = target.getAttribute('data-source');
-//         const imageAlt = target.getAttribute('alt');
-//         openModal(imageURL, imageAlt);
-//     }
-// });
+const lightbox = new SimpleLightbox('.gallery a');
