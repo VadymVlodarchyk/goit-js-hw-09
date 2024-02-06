@@ -63,8 +63,9 @@ const images = [
     description: "Lighthouse Coast Sea",
   },
 ];
-import SimpleLightbox from "simplelightbox";
-import "https://github.com/VadymVlodarchyk/goit-js-hw-09/blob/main/node_modules/simplelightbox/dist/simple-lightbox.min.css"
+import SimpleLightbox from 'simplelightbox';
+
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 
 const myContainer = document.querySelector('.gallery');
