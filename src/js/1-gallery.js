@@ -1,3 +1,4 @@
+
 const images = [
   {
     preview:
@@ -63,22 +64,52 @@ const images = [
     description: "Lighthouse Coast Sea",
   },
 ];
+
+
+
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-
 
 const myContainer = document.querySelector('.gallery');
 
 function myMarkup() {
     return images.map(image => {
         return `<li class="gallery-item">
-            <a class="gallery-link" href="${image.original}">
-                <img class="gallery-image" src="${image.preview}" alt="${image.description}" />
-            </a>
-        </li>`;
+  <a class="gallery-link" href="${image.original}">
+    <img class="gallery-image" src="${image.preview}" alt="${image.description}" />
+  </a>
+</li>`;
     }).join('\n\n');
 }
 
 myContainer.innerHTML = myMarkup();
 
 const lightbox = new SimpleLightbox('.gallery a');
+
+
+lightbox.on('next.simplelightbox', function () {
+    const currentImage = document.querySelector('.sl-current > .sl-image img');
+
+    if (currentImage) {
+        const altText = currentImage.getAttribute('alt');
+
+        const caption = document.createElement('div');
+        caption.className = 'sl-caption';
+        caption.innerHTML = altText;
+
+        const existingCaption = document.querySelector('.sl-caption');
+        if (existingCaption) {
+            existingCaption.remove();
+        }
+
+
+        currentImage.parentElement.appendChild(caption);
+
+        setTimeout(function () {
+            const newCaption = document.querySelector('.sl-caption');
+            if (newCaption) {
+                newCaption.style.opacity = '1';
+            }
+        }, 250);
+    }
+});
