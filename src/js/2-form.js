@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   form.addEventListener('input', function() {
     const formData = {
-      email: form.email.value,
-      message: form.message.value
+      email: form.email.value.trim(), 
+      message: form.message.value.trim() 
     };
 
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();
 
     console.log({
-      email: form.email.value,
-      message: form.message.value
+      email: form.email.value.trim(),
+      message: form.message.value.trim()
     });
 
     localStorage.removeItem('feedback-form-state');
@@ -30,5 +30,3 @@ document.addEventListener('DOMContentLoaded', function() {
     form.message.value = '';
   });
 });
-
-

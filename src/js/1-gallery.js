@@ -84,6 +84,6 @@ function myMarkup() {
 myContainer.innerHTML = myMarkup();
 
 const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'data-caption',
+    captionsData: 'alt', 
     captionDelay: 250
 });
