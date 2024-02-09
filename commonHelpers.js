@@ -4,5 +4,5 @@ import"./assets/modulepreload-polyfill-3cfb730f.js";/* empty css                
   </a>
 </li>`).join(`
 
-`)}a.innerHTML=t();new o(".gallery a",{captionsData:"data-caption",captionDelay:250});
+`)}a.innerHTML=t();new o(".gallery a",{captionsData:"alt",captionDelay:250});
 //# sourceMappingURL=commonHelpers.js.map
