@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
+    if (form.email.value.trim() === '' || form.message.value.trim() === '') {
+      alert('Будь ласка, заповніть усі поля форми.');
+      return;
+    }
     console.log({
       email: form.email.value.trim(),
       message: form.message.value.trim()
